@@ -1,0 +1,16 @@
+.task-item{
+    border-bottom: 1px solid orange;
+    height: fit-content;
+    padding: 5px 0;
+    
+    line-height: 5px;
+  }
+  
+  .task-def{
+    height: inherit;
+    font-size: 20px;
+  }
+
+  .task-def p{
+      font-size: 0.5em;
+  }
