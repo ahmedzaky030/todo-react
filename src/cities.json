@@ -1,0 +1,11 @@
+[
+    { "name":"Cairo", "countryCode":"egy" , "code":"cro" },
+    { "name":"Alex", "countryCode":"egy" ,"code":"alx" },
+    { "name":"Beni Ghazi", "countryCode":"lib", "code":"bgz"},
+    { "name":"Tarablos", "countryCode":"lib" ,"code":"trb"},
+    { "name":"Safaqs", "countryCode":"tun","code":"sfq" },
+    { "name":"Qairawan", "countryCode":"tun" ,"code":"qrw"},
+    { "name":"Casablanca", "countryCode":"mor","code":"csb" },
+    { "name":"Tanja", "countryCode":"mor" ,"code":"tng"}
+   
+]

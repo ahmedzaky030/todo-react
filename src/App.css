@@ -4,19 +4,18 @@
   height:100vh;
   color: antiquewhite;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-.todo-container{
-  width: fit-content;
-  height: fit-content;
-  
-  border-radius: 20px;
+.navigation {
+  width:20%;
 }
-.tasks{
-  width: fit-content;
-  height: fit-content;
+.navigation ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 

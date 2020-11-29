@@ -1,0 +1,12 @@
+
+.todo-container{
+    width: fit-content;
+    height: fit-content;
+    
+    border-radius: 20px;
+  }
+  .tasks{
+    width: fit-content;
+    height: fit-content;
+  }
+  
