@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import citiesArr from "../../cities.json";
-function RegisterForm(params) {
+function RegisterForm({closeModal}) {
     const [employee, updateEmp] = useState({
       email:'',
       name:'',
@@ -26,7 +26,7 @@ function RegisterForm(params) {
     
     
     return (
-      <form className="w-50" onSubmit={handleSubmit}>
+      <form className=" modall" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="exampleFormControlInput1">Name</label>
           <input
@@ -83,7 +83,10 @@ function RegisterForm(params) {
           
           </label>
         </div>
+        <div className="d-flex flex-row justify-content-between">
         <button type="submit" className="btn btn-primary">Submit</button>
+        <button onClick={closeModal} className="btn btn-primary ">Close</button>
+        </div>
       </form>
     );
 }
