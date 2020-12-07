@@ -1,0 +1,10 @@
+.modall {
+  width: 70%;
+  height: fit-content;
+  background-image: linear-gradient(to top, red, #155985);
+  position: fixed;
+  z-index: 5;
+  color: white;
+  top: 100px;
+  left: 250px;
+}
