@@ -1,6 +1,6 @@
 import Book from "./Book";
 import React from "react";
-const BookShelf = ({ shelf, books, onMove }) => {
+const BookShelf = ({ shelf, books }) => {
   const bookOnThisShelf = books.filter((book) => book.shelf === shelf.key);
   return (
     <div className="bookshelf">
@@ -10,7 +10,7 @@ const BookShelf = ({ shelf, books, onMove }) => {
           {bookOnThisShelf.map((book) => {
             return (
               <Book
-                onMove={onMove}
+                
                 key={book.id}
                 book={book}
                 shelf={shelf.key}

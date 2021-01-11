@@ -3,13 +3,6 @@ import React, { useState } from 'react';
 import ReactDOM from "react-dom";
 import RegisterForm from '../register-form/registerForm';
 
-export const ModalEx = () => {
-    return(
-        <div className="modall">
-            Modal Inside
-        </div>
-    )
-};
 const modalDiv = document.getElementById('modal');
 const Modal = () => {
     const [modalShow, updateShowModal] = useState(false);

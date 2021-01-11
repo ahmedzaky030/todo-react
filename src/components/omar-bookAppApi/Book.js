@@ -1,6 +1,7 @@
 import React from "react";
+import { BookContext } from "./BooksApp";
 import BookShelfChanger from "./BookShelfChanger";
-const Book = ({ book, shelf, onMove }) => (
+const Book = ({ book, shelf }) => (
   <li>
     <div className="book">
       <div className="book-top">
@@ -12,7 +13,12 @@ const Book = ({ book, shelf, onMove }) => (
             backgroundImage: `url(${book.imageLinks.thumbnail})`,
           }}
         />
-        <BookShelfChanger onMove={onMove} book={book} shelf={shelf} />
+        <BookContext.Consumer>
+          {(props) => (
+            <BookShelfChanger onMove={props.onMove} book={book} shelf={shelf} />
+          )}
+        </BookContext.Consumer>
+        
       </div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">

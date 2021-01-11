@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import AppTodo from "./components/omar-todo/AppTodo";
 import BooksApp from "./components/omar-bookAppApi/BooksApp";
+import Movies from "./components/movies-show/movies";
 //AppTodo
 
 function App() {
@@ -65,6 +66,16 @@ function App() {
                 omar bookApi
               </NavLink>
             </li>
+            <li>
+              <NavLink 
+                style={{ textDecoration: "none", color: "#fa923f" }}
+                activeStyle={{ color: "white", textDecoration: "none" }}
+                exact
+                to="/movies"
+              >
+                Ahmed - Movies Show
+              </NavLink>
+            </li>
           </ul>
         </nav>
         <hr />
@@ -83,6 +94,9 @@ function App() {
           </Route>
           <Route path="/books/">
             <BooksApp />
+          </Route>
+          <Route path="/movies">
+            <Movies />
           </Route>
         </Switch>
       </Router>

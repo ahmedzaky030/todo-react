@@ -1,15 +1,14 @@
 import BookShelf from "./BookShelf";
 import React from "react";
-const BookCase = ({ bookshelves, books, onMove }) => {
+const BookCase = ({ bookshelves, books }) => {
   return (
     <div className="list-books-content">
       <div>
         {bookshelves.map((shelf) => (
           <BookShelf
-            onMove={onMove}
             key={shelf.key}
             shelf={shelf}
-            books={books}
+            books={books.filter( book => book.shelf.includes(shelf.key))}
           />
         ))}
       </div>

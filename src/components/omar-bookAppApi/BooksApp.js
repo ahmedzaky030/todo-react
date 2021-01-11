@@ -6,53 +6,58 @@ import BookSearch from "./BookSearch";
 import ListBooks from "./ListBooks";
 import { debounce } from "throttle-debounce";
 
+
+export const BookContext = React.createContext({
+  onMove: (book, shelf) => {},
+  name: 'Ahmed'
+})
+
 class BooksApp extends Component {
   bookshelves = [
     { key: "currentlyReading", name: "Currently Reading" },
     { key: "wantToRead", name: "Want to Read" },
     { key: "read", name: "Have Read" },
   ];
+
   state = {
     books: [],
     searchBooks: [],
   };
-  searchForBooks = debounce(300, false, (query) => {
-    console.log(query);
+
+  searchForBooks = debounce(1000, false, (query) => {
     if (query.length > 0) {
       BooksAPI.search(query).then((books) => {
-        console.log(books);
-        if (books.error) {
-          this.setState({ searchBooks: [] });
-        } else {
           this.setState({ searchBooks: books });
-        }
       });
-    } else {
-      this.setState({ searchBooks: [] });
     }
   });
+
   resetSearch = () => {
     this.setState({ searchBooks: [] });
   };
+
   onMove = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-    let updatedBooks = [];
-    updatedBooks = this.state.books.filter((b) => b.id !== book.id);
-
-    if (shelf !== "none") {
-      book.shelf = shelf;
-      updatedBooks = updatedBooks.concat(book);
-    }
-
-    this.setState({
-      books: updatedBooks,
+    BooksAPI.update(book, shelf).then(result => {
+      let updatedBooks = [];
+      updatedBooks = this.state.books.filter((b) => b.id !== book.id);
+  
+      if (shelf !== "none") {
+        book.shelf = shelf;
+        updatedBooks = updatedBooks.concat(book);
+      }
+  
+      this.setState({
+        books: updatedBooks,
+      });
     });
   };
+
   componentDidMount = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books });
     });
   };
+
   render() {
     const { books, searchBooks } = this.state;
 
@@ -61,24 +66,28 @@ class BooksApp extends Component {
         <Route
           path="/books/search/"
           render={() => (
-            <BookSearch
+            <BookContext.Provider value={{onMove: this.onMove.bind()}}>
+<BookSearch
               books={searchBooks}
               onMove={this.onMove}
               onSearch={this.searchForBooks}
               onResetSearch={this.resetSearch}
               myBooks={books}
             />
+            </BookContext.Provider>
+            
           )}
         />
         <Route
           path="/books/"
           exact
           render={() => (
-            <ListBooks
-              bookshelves={this.bookshelves}
-              onMove={this.onMove}
-              books={books}
-            />
+            <BookContext.Provider value={{onMove: this.onMove.bind()}}>
+              <ListBooks
+                bookshelves={this.bookshelves}
+                books={books}
+              />
+            </BookContext.Provider>
           )}
         />
       </div>
