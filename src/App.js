@@ -12,6 +12,7 @@ import {
 import AppTodo from "./components/omar-todo/AppTodo";
 import BooksApp from "./components/omar-bookAppApi/BooksApp";
 import Movies from "./components/movies-show/movies";
+import BreakingApp from "./components/breaking-bad-api/BreakingApp";
 //AppTodo
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
               </NavLink>
             </li>
             <li>
-              <NavLink 
+              <NavLink
                 style={{ textDecoration: "none", color: "#fa923f" }}
                 activeStyle={{ color: "white", textDecoration: "none" }}
                 exact
@@ -67,13 +68,23 @@ function App() {
               </NavLink>
             </li>
             <li>
-              <NavLink 
+              <NavLink
                 style={{ textDecoration: "none", color: "#fa923f" }}
                 activeStyle={{ color: "white", textDecoration: "none" }}
                 exact
                 to="/movies"
               >
                 Ahmed - Movies Show
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                style={{ textDecoration: "none", color: "#fa923f" }}
+                activeStyle={{ color: "white", textDecoration: "none" }}
+                exact
+                to="/BreakingApp"
+              >
+                BreakingApp-Api-omar
               </NavLink>
             </li>
           </ul>
@@ -97,6 +108,9 @@ function App() {
           </Route>
           <Route path="/movies">
             <Movies />
+          </Route>
+          <Route path="/BreakingApp">
+            <BreakingApp />
           </Route>
         </Switch>
       </Router>
